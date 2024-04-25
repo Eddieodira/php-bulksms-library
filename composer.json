@@ -1,0 +1,21 @@
+{
+    "name": "eddieodira/messager",
+    "description": "PHP BulkSMS API Implementation for Hostpinnacle (Kenya)",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Eddieodira\\Messager\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Eddy Odingo Odira",
+            "email": "76993534+Eddieodira@users.noreply.github.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^7.3|^8.1"
+    }
+}
