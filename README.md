@@ -4,7 +4,7 @@ This is a simple implementation of bulk sms for PHP for Hostpinnacle in Kenya. T
 ## Composer Installation
 You can install the package via composer:
 ```php
-composer require eddieodira/bulksms:dev-main
+composer require eddieodira/messager
 ```
 ## Registration
 To use this library you need create an account with Hostpinnacle (https://www.hostpinnacle.co.ke). They will help to create account from which you will get the following credentials:
@@ -19,7 +19,7 @@ To use this library you need create an account with Hostpinnacle (https://www.ho
 Send a single message:
 
 ```php
-use Eddieodira\Bulksms\Sender;
+use Eddieodira\Messager\Sender;
 $configData = [
   'apiEndPoint' => 'xxxxxxxxxxxxxxxxxx',
   'userId' => 'xxxxxxxxxxxxxxxxx', 
@@ -39,7 +39,7 @@ echo $hostpinnacle->getResponse();
 Send one message to more than one number:
 
 ```php
-use Eddieodira\Bulksms\Sender;
+use Eddieodira\Messager\Sender;
 $configData = [
   'apiEndPoint' => 'xxxxxxxxxxxxxxxxxx',
   'userId' => 'xxxxxxxxxxxxxxxxx', 
@@ -60,7 +60,7 @@ echo $hostpinnacle->getResponse();
 In order to send schedule messages, make sure call the method ```$hostpinnacle->setScheduleTime("2024-04-25 09:46:00"); ```, with date and time as the argument:
 
 ```php
-use Eddieodira\Bulksms\Sender;
+use Eddieodira\Messager\Sender;
 $configData = [
   'apiEndPoint' => 'xxxxxxxxxxxxxxxxxx',
   'userId' => 'xxxxxxxxxxxxxxxxx', 
