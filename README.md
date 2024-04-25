@@ -19,7 +19,7 @@ To use this library you need create an account with Hostpinnacle (https://www.ho
 Send a single message:
 
 ```php
-use Eddieodira\Bulksms\Hostpinnacle;
+use Eddieodira\Bulksms\Sender;
 $configData = [
   'apiEndPoint' => 'xxxxxxxxxxxxxxxxxx',
   'userId' => 'xxxxxxxxxxxxxxxxx', 
@@ -28,7 +28,7 @@ $configData = [
   'senderId' => 'xxxxxxxxxxxxxxxxxxx',
 ];
 
-$hostpinnacle = new Hostpinnacle($configData);
+$hostpinnacle = new Sender($configData);
 $hostpinnacle->setSendMethod('quick');
 $hostpinnacle->setPhone('2547xxxxxxxx'); //You can only use mobile phone numbers in the format: 254721000000 or +254721000000
 $hostpinnacle->setMessage('Hello, I am just testing this applications');
@@ -39,7 +39,7 @@ echo $hostpinnacle->getResponse();
 Send one message to more than one number:
 
 ```php
-use Eddieodira\Bulksms\Hostpinnacle;
+use Eddieodira\Bulksms\Sender;
 $configData = [
   'apiEndPoint' => 'xxxxxxxxxxxxxxxxxx',
   'userId' => 'xxxxxxxxxxxxxxxxx', 
@@ -48,7 +48,7 @@ $configData = [
   'senderId' => 'xxxxxxxxxxxxxxxxxxx',
 ];
 
-$hostpinnacle = new Hostpinnacle($configData);
+$hostpinnacle = new Sender($configData);
 $hostpinnacle->setSendMethod('quick');
 $hostpinnacle->setPhone('25472xxxxxxx, 25475xxxxxxx, 25476xxxxxxx'); //You can only use mobile phone numbers in the format: 254721000000 or +254721000000
 $hostpinnacle->setMessage('Hello, I am just testing this applications');
@@ -60,7 +60,7 @@ echo $hostpinnacle->getResponse();
 In order to send schedule messages, make sure call the method ```$hostpinnacle->setScheduleTime("2024-04-25 09:46:00"); ```, with date and time as the argument:
 
 ```php
-use Eddieodira\Bulksms\Hostpinnacle;
+use Eddieodira\Bulksms\Sender;
 $configData = [
   'apiEndPoint' => 'xxxxxxxxxxxxxxxxxx',
   'userId' => 'xxxxxxxxxxxxxxxxx', 
@@ -69,7 +69,7 @@ $configData = [
   'senderId' => 'xxxxxxxxxxxxxxxxxxx',
 ];
 
-$hostpinnacle = new Hostpinnacle($configData);
+$hostpinnacle = new Sender($configData);
 $hostpinnacle->setSendMethod('quick');
 $hostpinnacle->setPhone('25472xxxxxxx, 25475xxxxxxx, 25476xxxxxxx'); //You can only use mobile phone numbers in the format: 254721000000 or +254721000000
 $hostpinnacle->setScheduleTime("2024-04-25 09:46:00");
