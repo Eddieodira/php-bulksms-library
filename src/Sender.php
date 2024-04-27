@@ -3,6 +3,7 @@
 namespace Eddieodira\Messager;
 
 use Eddieodira\Messager\Constant\Constants;
+use Eddieodira\Messager\Exception\MessagerException;
 
 class Sender
 {
@@ -92,9 +93,15 @@ class Sender
             if ($this->validPhone($this->phone)) {
                 $this->arrayPost[Constants::SMS_PHONE] = $this->phone;
             }
-            
-            return $this->response = $this->sendArrayPost($this->apiEndPoint, $this->arrayPost);
+
+            $this->baseAPIPost($this->apiEndPoint, $this->arrayPost);
         }
+    }
+
+    private function baseAPIPost($apiEndPoint, $arrayPost = array()) {
+        $this->arrayPost[Constants::SMS_USER_ID] = $this->userId;
+        $this->arrayPost[Constants::SMS_PASSWORD] = $this->password;
+        return $this->response = $this->sendArrayPost($this->apiEndPoint, $this->arrayPost);
     }
 
 
@@ -117,9 +124,9 @@ class Sender
         $curlError = curl_error($curl);
         curl_close($curl);
         if ($curl_response === false) {
-            throw new \Exception('Unable to connect to Hostpinnacle SMS API: ' . $curlError);
+            throw new MessagerException('Unable to connect to Hostpinnacle SMS API: ' . $curlError);
         } elseif ($getHTTPCode != 200) {
-            throw new \Exception('Bad response from Hostpinnacle SMS API: HTTP code ' . $getHTTPCode);
+            throw new MessagerException('Bad response from Hostpinnacle SMS API: HTTP code ' . $getHTTPCode);
         }
         return $curl_response;
     }
@@ -132,6 +139,6 @@ class Sender
             }
         }
 
-        throw new \Exception("The mobile phone: {$phone} is invalid. All phones must start with +254 or 254");
+        throw new MessagerException("The mobile phone: {$phone} is invalid. All phones must start with +254 or 254");
     }
 }
