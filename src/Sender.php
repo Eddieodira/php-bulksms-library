@@ -75,8 +75,6 @@ class Sender
     public function sendMessage()
     {
         if (!empty($this->phone) && !empty($this->message)) {
-            $this->arrayPost[Constants::SMS_USER_ID] = $this->userId;
-            $this->arrayPost[Constants::SMS_PASSWORD] = $this->password;
             $this->arrayPost[Constants::SMS_MESSAGE] = $this->message;
             $this->arrayPost[Constants::SMS_SENDER_ID] = $this->senderId;
 
