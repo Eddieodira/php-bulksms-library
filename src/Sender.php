@@ -20,7 +20,7 @@ class Sender
     protected $output;
     protected $sendMethod;
     protected $response;
-    protected $arrayPost;
+    protected $arrayPost = [];
 
     public function __construct($configData) {
         $data = (object) $configData;
