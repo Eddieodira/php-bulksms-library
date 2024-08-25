@@ -28,6 +28,6 @@ class Constants
     const METHOD_BULK_MESSAGE = "excelMsg";
     
     const PARAM_PATTERNS = [
-        'PHONE_NUMBER' => '/(\+254|254)([7][0-9]|[1][0-1]){1}[0-9]{1}[0-9]{6}/',
+        'PHONE_NUMBER' => '/^(?:254|\+254|0)?(7(?:(?:[12][0-9])|(?:0[0-8])|(9[0-2]))[0-9]{6})$/',
     ];
 }
