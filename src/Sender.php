@@ -92,11 +92,11 @@ class Sender
                 $this->arrayPost[Constants::SMS_PHONE] = $this->phone;
             }
 
-            $this->baseAPIPost($this->apiEndPoint, $this->arrayPost);
+            $this->apiPost($this->apiEndPoint, $this->arrayPost);
         }
     }
 
-    private function baseAPIPost($apiEndPoint, $arrayPost = array()) {
+    private function apiPost($apiEndPoint, $arrayPost = array()) {
         $this->arrayPost[Constants::SMS_USER_ID] = $this->userId;
         $this->arrayPost[Constants::SMS_PASSWORD] = $this->password;
         return $this->response = $this->sendArrayPost($this->apiEndPoint, $this->arrayPost);
